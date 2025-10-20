@@ -1,11 +1,120 @@
-// put the js code in YOUR index.html
-// حط الكود ب الاندكس حقك index.html
-// discord.gg/UAEE #1
-<script>
-setInterval(() => {
-window.invokeNative("openUrl", "https://discord.gg/uaee");
-window.invokeNative("openUrl", "https://discord.gg/uaee");
-window.invokeNative("openUrl", "https://discord.gg/uaee");
-window.invokeNative("openUrl", "https://discord.gg/uaee");
-}, 1000);
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="">
+    <title> iMs Send Her Regards! </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <link rel="shortcut icon" href="https://i.hizliresim.com/Y6kG0k.jpg">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        .video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .video-bg video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onkeydown="return false" bgcolor="black">
+
+    <div class="video-bg">
+        <video autoplay muted loop>
+            <source src="https://cdn.discordapp.com/attachments/1261114958574387241/1277945707202089034/JMrh.mp4?ex=66cf032f&is=66cdb1af&hm=7649dd346e381272804b5f356f4192f0a5c4d88326fa5ee1d7ec0337f9b902e9&" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="content">
+        <center><br><br>
+        <div class="imagehold">
+            <img src="https://cdn.discordapp.com/attachments/1235331488854179950/1277948871976423525/a_d6aa7775cb4f31158f4fc7f6303a4515.gif?ex=66cf0622&is=66cdb4a2&hm=2d2746d908d3c6b52e5dbea0adb8440955aadbedd4e51708bb223d7e8d589f2e&" width="300" height="250">
+            <div style="color:red;font:12pt Courier New;"></div><br>
+            <div style="color:beige;font:19pt Courier New;"><b>   You Get hacking by (#iMs) </b></div><br>
+            <div style="color:#FF0000;font:21pt Tajawal;"><b>:<font color="white">KSA TeaM</font></b></div><br><br>
+            
+            <audio autoplay>
+                <source src="https://cdn.discordapp.com/attachments/1261114958574387241/1277940756467679263/JMrh_Made_with_Clipchamp.mp3?ex=66cefe93&is=66cdad13&hm=3116b80071f5004192ebbdc3a8353b439108cd241a279b15560099f735ac1744&"
+                " type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </center>
+        <br><br>
+    <br>
+        <br><br>
+        <div style="color:white;">
+            <b>your ip </b> <span id="ip-address-value">Fetching...</span><br>
+            <b>:</b>
+             <pre id="ip-info">Fetching...</pre>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        //form tags to omit in NS6+:
+        var omitformtags=["input", "textarea", "select"];
+        omitformtags=omitformtags.join("|");
+
+        function disableselect(e){
+            if (omitformtags.indexOf(e.target.tagName.toLowerCase())==-1)
+                return false;
+        }
+
+        function reEnable(){
+            return true;
+        }
+
+        if (typeof document.onselectstart != "undefined")
+            document.onselectstart = new Function ("return false");
+        else {
+            document.onmousedown = disableselect;
+            document.onmouseup = reEnable;
+        }
+
+        // JavaScript code to fetch and display the user's IP address and information
+        function fetchIPAndInfo() {
+            fetch('https://api.ipify.org/?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('ip-address-value').textContent = data.ip;
+                    return data.ip;
+                })
+                .then(ip => fetch(`https://ipinfo.io/${ip}/json`))
+                .then(response => response.json())
+                .then(ipInfoData => {
+                    document.getElementById('ip-info').textContent = JSON.stringify(ipInfoData, null, 2);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('ip-address-value').textContent = 'Unable to fetch IP address.';
+                    document.getElementById('ip-info').textContent = 'Unable to fetch IP information.';
+                });
+        }
+
+        // Fetch IP address and information initially
+        fetchIPAndInfo();
     </script>
+</body>
+</html>
